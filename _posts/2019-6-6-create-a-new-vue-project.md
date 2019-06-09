@@ -26,6 +26,6 @@ tags:
 
 5.选择路径，cd目录路径，新建项目，命令行输入` vue init webpack 项目名称 `,完成项目的相关配置，一般默认都选yes。完成后进入文件夹，可以看到项目结构如下：
 
-![img](../img/20190606/initialize.png)
+![img](../img/20190606/initialize.jpg)
 
 6.启动项目，下载依赖。进入项目目录，命令行下输入` cnpm install `,和` npm run dev `,项目启动成功后，可以在浏览器输入网址
