@@ -28,4 +28,6 @@ tags:
 
 ![img](../img/20190606/initialize.jpg)
 
-6.启动项目，下载依赖。进入项目目录，命令行下输入` cnpm install `,和` npm run dev `,项目启动成功后，可以在浏览器输入网址
+6.启动项目，下载依赖。进入项目目录，命令行下输入` cnpm install `,和` npm run dev `,项目启动成功后，可以在浏览器输入网址 http://localhost:8080
+
+![img](../img/20190606/run.png)
