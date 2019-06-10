@@ -28,7 +28,7 @@ tags:
 
 ![img](/img/20190606/initialize.jpg)
 
-6.启动项目，下载依赖。进入项目目录，命令行下输入` cnpm install `,和` npm run dev `,项目启动成功后，可以在浏览器输入网址 http://localhost:8080, 如下图所示：
+6.启动项目，下载依赖。进入项目目录，命令行下输入` cnpm install `,和` npm run dev `,项目启动成功后，可以在浏览器输入网址 http: //localhost:8080, 如下图所示：
 
 ![img](/img/20190606/run.png)
 ![img](/img/20190606/browser.jpg)
@@ -36,12 +36,22 @@ tags:
 
 ## 实现我们自己的页面
 
-1. 先看main.js 项目入口文件
+1.先看main.js 项目入口文件
 
 ![img](/img/20190606/mainjs.png)
 
-2.然后看app.vue
+首先导入了vue、vue-router和app.vue，axios是我后来需要引入的。初始化一个vue对象，将router和组件注册到vue对象中。这个文件我们先不用管，不影响我们后面的开发。
+
+2.然后看主容器app.vue
 
 ![img](/img/20190606/appvue.png)
+
+App.vue是主组件，所有页面都是在App.vue下进行切换的。组件分为三个部分template、script和style。在单页面应用中，每一个页面对应一个路由，切换路由即可切换页面。
+
+3.看router文件夹下面的index.js
+
+![img](/img/20190606/indexjs.png)
+
+这里我导入了cart和address组件，生成router对象，router对象里可以有很多个路由，每个路由包含了三个字段path,name,component.换成自己的组件，页面就会变成我们自己的页面。
 
 ## 新建vue项目中遇到的各种error
