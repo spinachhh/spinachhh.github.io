@@ -24,7 +24,10 @@ tags:
 
 4.安装webpack,` cnpm install webpack-g `
 
-5.选择路径，cd目录路径，新建项目，命令行输入` vue init webpack 项目名称 `,完成项目的相关配置，一般默认都选yes。完成后进入文件夹，可以看到项目结构如下：
+5.选择路径，cd目录路径，新建项目，命令行输入` vue init webpack 项目名称 `,完成项目的相关配置，一般默认都选yes。
+![img](/img/20190606/start.png)
+
+完成后进入文件夹，可以看到项目结构如下：
 
 ![img](/img/20190606/initialize.jpg)
 
