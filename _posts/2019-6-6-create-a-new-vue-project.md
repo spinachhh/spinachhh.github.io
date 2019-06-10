@@ -26,22 +26,22 @@ tags:
 
 5.选择路径，cd目录路径，新建项目，命令行输入` vue init webpack 项目名称 `,完成项目的相关配置，一般默认都选yes。完成后进入文件夹，可以看到项目结构如下：
 
-![img](../img/20190606/initialize.jpg)
+![img](/img/20190606/initialize.jpg)
 
 6.启动项目，下载依赖。进入项目目录，命令行下输入` cnpm install `,和` npm run dev `,项目启动成功后，可以在浏览器输入网址 http://localhost:8080, 如下图所示：
 
-![img](../img/20190606/run.png)
-![img](../img/20190606/browser.jpg)
+![img](/img/20190606/run.png)
+![img](/img/20190606/browser.jpg)
 
 
 ## 实现我们自己的页面
 
 1. 先看main.js 项目入口文件
 
-![img](../img/20190606/mainjs.png)
+![img](/img/20190606/mainjs.png)
 
 2.然后看app.vue
 
-![img](../img/20190606/appvue.png)
+![img](/img/20190606/appvue.png)
 
 ## 新建vue项目中遇到的各种error
