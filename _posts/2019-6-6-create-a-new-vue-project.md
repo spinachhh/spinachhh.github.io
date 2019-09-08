@@ -57,13 +57,23 @@ App.vue是主组件，所有页面都是在App.vue下进行切换的。组件分
 
 这里我导入了cart和address组件，生成router对象，router对象里可以有很多个路由，每个路由包含了三个字段path,name,component.换成自己的组件，页面就会变成我们自己的页面。需要更详细的构建vue单页应用的过程，可见[参考](https://blog.csdn.net/zgh0711/article/details/78042677)
 
+## 上传vue项目到GitHub并且能预览
+1.打包项目 `npm run build`
+
+2.上传项目到GitHub，可以在线上传 or 使用git。
+
+3.点击项目里的settings，下拉找到GitHub pages，source处选择master branch，就会看到一个网址啦。
+![img](/img/20190606/1.png)
+
+4.在地址后加上dist即可成功预览，因为dist是打包后的文件。
+
 ## 新建vue项目中遇到的各种error
 
-1.启动时报错"Unexpected tab character"
+1.启动时报错`Unexpected tab character`
 
-解决方法：在eslint的配置文件中（.eslintrc）rules项中添加一行："no-tabs":"off"；或者在报错的文件前加上：/* eslint-disable */
+解决方法：在eslint的配置文件中（.eslintrc）rules项中添加一行："no-tabs":"off"；或者在报错的文件前加上：`/* eslint-disable */`
 
-2.启动时报错"Mixed spaces and tabs"
+2.启动时报错`Mixed spaces and tabs`
 
-解决办法：由于使用了Eslint来规范代码，如果不想受限严格可以在报错的文件前加上：/* eslint-disable */
+解决办法：由于使用了Eslint来规范代码，如果不想受限严格可以在报错的文件前加上：`/* eslint-disable */`
 
