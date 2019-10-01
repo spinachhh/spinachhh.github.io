@@ -11,7 +11,7 @@ Hey，我是镇紫薇。
 
 - [shopping-cart][1] · 2019
 
--[whisper][2]· 2019
+- [whisper][2]· 2019
 
 
 [1]: https://spinachhh.github.io/shopping-cart/dist/#/
