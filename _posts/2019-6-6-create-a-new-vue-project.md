@@ -18,7 +18,7 @@ tags:
 
 ![img](/img/20190606/node-v.png)
 
-2.由于有些npm有些资源被屏蔽或者是国外资源的原因，经常会导致用npm安装依赖包的时候失败，所以还需要npm的国内镜像---cnpm。在命令行输入` npm install -g cnpm registry=https://registry.npm.taobao.org `.
+2.由于有些npm有些资源被屏蔽或者是国外资源的原因，经常会导致用npm安装依赖包的时候失败，所以还需要npm的国内镜像---cnpm。在命令行输入` npm install -g cnpm --registry=https://registry.npm.taobao.org `.
 
 3.安装vue-cli，命令行输入` cnpm install -g vue-cli `.
 
