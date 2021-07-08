@@ -1,0 +1,75 @@
+---
+layout: post
+title: 记录Vue + nodejs项目如何部署在Linux服务器
+data: 2021-07-08
+author: "zzw"
+catalog: true
+tags:
+    - vue -Linux
+---
+
+
+**首先介绍一下项目，使用neteasecloudmusicapi写好的[网易云音乐 NodeJS 版 API](https://neteasecloudmusicapi.vercel.app/#/?id=neteasecloudmusicapi)，且vue-cli3构建的简易音乐单页面应用。
+
+![whisper2.0](/img/20210708_1.png)
+
+
+## 大致流程如下：
+
+购买云服务器=》购买域名（也可不买，直接IP访问）=》在服务器安装nginx=》在服务器安装nodejs=》打包项目=》上传到服务器
+
+### 购买云服务器
+
+随便购买一家云服务器（阿里云、腾讯云or其他），我选择的香港的不用备案节省时间和精力。
+当你购买成功后会拿到你的服务器公网ip，以及用户名和密码
+
+![](/img/20210708_2.png)
+
+
+### 服务器安装nginx
+首先我们自己电脑安装两个软件，便于操控远程服务器
+1.xshell or MobaXterm or 其他顺手的软件（远程终端控制软件）
+主机填写服务器外网ip，然后会让你输入账号和密码（购买服务器时设置的）
+![xshell](/img/20210708_3.png)
+2.Filezilla or 8UFTP 等ftp工具（传输文件至远程服务器）
+同上完成连接
+![fz](/img/20210708_4.png)
+
+安装nginx[参考链接](https://www.linuxidc.com/Linux/2019-11/161440.htm)
+
+
+### 服务器安装nodejs
+最初我采用wget命令安装nodejs，成功后报错 command not found
+[参考链接](https://blog.csdn.net/u014204541/article/details/103868208?utm_medium=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-10.control&depth_1-utm_source=distribute.pc_relevant.none-task-blog-2%7Edefault%7EBlogCommendFromMachineLearnPai2%7Edefault-10.control)
+
+所以换了一种安装方式，用epel-release安装
+[参考链接](https://blog.csdn.net/Sunnyside_/article/details/114882242?utm_medium=distribute.pc_relevant.none-task-blog-baidujs_title-1&spm=1001.2101.3001.4242)
+
+### 部署nodejs项目
+先在服务器上部署网易云音乐 NodeJS 版 API
+![fz1](/img/20210708_5.png)
+
+在/var/www/目录下新建项目文件夹，并将nodejs项目上传，然后cd进nodejs文件目录下执行项目启动命令`node app.js`
+此时访问http://你的ip地址:3000，可看到项目成功运行，如果网页打不开，去设置云服务器的安全组端口，将你需要使用的端口添加进去。
+
+我们需要下载pm2（nodejs进程管理器，它允许您永久保持应用程序活跃，无需停机即可重新加载它们）使用pm2，即使我们关掉终端软件，项目也能运行
+`npm install -g pm2`  //全局安装pm2
+`pm2` //检查是否成功安装
+`pm2 start app.js`  //在项目路径下执行，使用pm2启动项目
+
+### 部署vue项目
+打包项目，将打包后的dist文件夹中的文件上传到服务器上
+然后需要配置nginx.conf文件
+编辑/etc/nginx/nginx.conf文件
+
+![nginx.conf](/img/20210708_6.png)
+root后面写项目文件夹的位置
+
+完成后更新一下修改的内容`nginx -s reload`
+`sudo systemctl enable nginx`（停止nginx运行）
+
+`sudo systemctl start nginx`（开启nginx运行）
+
+`sudo systemctl status nginx`（查看nginx运行状态）
+
+最后打开你的网址就能成功访问你的项目了~
